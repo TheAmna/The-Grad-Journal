@@ -1,4 +1,5 @@
-assuming variables f to j are registers x19-x23
+# LISTING 3
+#assuming variables f to j are registers x19-x23
 li x19, 1 #f
 li x20, 1 #g
 li x21, 1 #h
@@ -15,8 +16,13 @@ sub x19, x20, x21     # f = g - h
 EXIT :
 
 
-# assuming i & k in x22 and x24
 
+#LISTING 4
+
+# while (save[i] == k)
+#     i += 1
+
+# assuming i & k in x22 and x24
 li x22, 1  # i
 li x24, 4  # k
 li x26, 2 
