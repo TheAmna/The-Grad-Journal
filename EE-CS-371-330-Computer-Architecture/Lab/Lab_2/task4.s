@@ -1,3 +1,4 @@
+
 li x5, 3 # a
 li x6, 2 # b
 li x7, 0 # i
@@ -21,4 +22,3 @@ addi x7, x7, 1 # i++
 blt x7, x5, LOOPJ # if i < a, repeat LOOPJ
 
 EXIT:
-
