@@ -78,7 +78,8 @@ li x14, 0 # temp
 li x15, 0x100 
 
 OUTERLOOP:
-   
+    li x11, 0 # swapped = false
+    li x12, 1 # i=1
 
     INNERLOOP:
         beq x12, x13, OUTERLOOP # if i==SIZEC, go to outerloop
