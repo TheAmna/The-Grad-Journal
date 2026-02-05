@@ -1,21 +1,28 @@
-li x10, 0x100 #arr v[]
-li x11, 2  # k (size of arr)
-li x14, 5 # random val to populate the arr
-li x15, 8 
+#task 3
+#x10 is array base address, x11 is index k
+#swaps v[k] and v[k+1]
 
-sw x14, 0(x10)  # stroe in arr
-sw x15, 4(x10)
+li x10, 0x100 #array base address
+li x11, 1   #k = 1 (so we swap v[1] and v[2])
+li x14, 5 #first value
+li x15, 8 #second value
 
-jal x1, SWAP 
-j exit 
+sw x14, 0(x10)  #v[0]=5
+sw x15, 4(x10)  #v[1]=8
 
-SWAP : 
-    slli, x12, x11, 2 # k*4
-    add x12, x10, x12  # address of v[k] at 2
+jal x1, SWAP
+j exit
+
+SWAP:
+    slli x12, x11, 2  #k*4
+    add x12, x10, x12 #address of v[k]
     
-    lw x16, 0(x12) # temp = v[k]
-    sw x16, 4(x12) # v[k] = v[k+1]
-    lw x17, 4(x12)  # load v[k+1]
-    sw x17, 0(x12) # v[k+1] = temp 
-    jalr x0,0(x1) # return
-exit : 
+    lw x16, 0(x12) #temp = v[k]
+    lw x17, 4(x12) #load v[k+1]
+    
+    sw x17, 0(x12) # v[k] = v[k+1]
+    sw x16, 4(x12) # v[k+1] = temp
+    
+    jalr x0, 0(x1)     
+
+exit:
