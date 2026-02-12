@@ -1,7 +1,13 @@
 li x10, 3 # num=3
 li x7, 1 # i
 li x6, 1 # temp
-li x11,1 
+li x11,1
+
+jal x1, ntri 
+add  x11,x10,x0
+li x10, 1
+ecall 
+j exit 
 
 ntri:
  addi sp , sp , -8 # adjust stack for 2 items
@@ -25,4 +31,7 @@ L1:
  addi sp , sp , 8 # pop stack
 
  add x10 , x10 , x6 # num + ntri(num-1)
+ mv x11, x10 
  jalr x0 , 0(x1) # return
+
+exit : 
