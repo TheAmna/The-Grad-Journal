@@ -27,6 +27,8 @@
     li   x12, 4  #high = 4
     li   x13, 25 #target = 25
     jal  x1, BSEARCH #call
+    EXIT:
+    j    EXIT 
 
 
 # args: x10=arr  x11=low  x12=high  x13=target
