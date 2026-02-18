@@ -12,27 +12,20 @@
 # result in x10: 25 if found, -1 if not
 
     addi sp, sp, -20 #create space on stack
-
     li   x5, 3
     sw   x5,  0(sp) #arr[0] = 3
-
     li   x5, 11
     sw   x5,  4(sp) #arr[1] = 11
-
     li   x5, 25
-    sw   x5,  8(sp) arr[2] = 25
-
+    sw   x5,  8(sp) #arr[2] = 25
     li   x5, 42
     sw   x5, 12(sp) #arr[3] = 42
-
     li   x5, 67
     sw   x5, 16(sp) #arr[4] = 67
-
     add  x10, sp,  x0  # x10 = array address
     li   x11, 0   #low = 0
     li   x12, 4  #high = 4
     li   x13, 25 #target = 25
-
     jal  x1, BSEARCH #call
 
 
@@ -71,7 +64,6 @@ GOLEFT:
     add  x13, x20, x0
     jal  x1, BSEARCH
     j    DONE
-
 GORIGHT:
     add  x10, x21, x0
     addi x11, x5,  1  #low = mid + 1
@@ -79,14 +71,11 @@ GORIGHT:
     add  x13, x20, x0
     jal  x1, BSEARCH
     j    DONE
-
 NOTFOUND:
     li   x10, -1
     j    DONE
-
 FOUND:
     add  x10, x7, x0  #return the value itself
-
 DONE:
     lw   x1,   0(sp) #restore ra
     lw   x18,  4(sp)

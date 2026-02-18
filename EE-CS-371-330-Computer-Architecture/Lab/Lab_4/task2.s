@@ -15,7 +15,7 @@ ntri:
  sw x10 , 0(sp) #save argument num
 
  addi x5 , x10 , -1 # x5 = num - 1
- bge x5 , x11 , L1 #if (num - 1) <= 0, go to L1
+ bge x5 , x11 , L1 #if (num - 1) <= 1, go to L1
 
  addi x10 , x0 , 1 #return 1
  addi sp , sp , 8 # pop stack
