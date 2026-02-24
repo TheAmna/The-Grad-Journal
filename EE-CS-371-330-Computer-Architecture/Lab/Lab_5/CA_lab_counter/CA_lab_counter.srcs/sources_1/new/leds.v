@@ -1,0 +1,30 @@
+//Synchronises the raw slide-switch inputs into the
+// FPGA clock domain using a two-flop synchroniser chain.
+// This eliminates metastability when sampling asynchronous
+// mechanical switch inputs at 100 MHz.
+module leds (
+    input              clk,
+    input              rst,
+    input  [15:0]      btns,
+    input  [31:0]      writeData,
+    input              writeEnable,
+    input              readEnable,
+    input  [29:0]      memAddress,
+    input  [15:0]      switches,
+    output reg [31:0]  readData
+);
+
+    reg [15:0] sync_stage1;
+
+    always @(posedge clk) begin
+        if (rst) begin
+            sync_stage1      <= 16'd0;
+            readData         <= 32'd0;
+        end else begin
+            sync_stage1      <= switches;
+            readData[15:0]   <= sync_stage1;
+            readData[31:16]  <= 16'd0;
+        end
+    end
+
+endmodule

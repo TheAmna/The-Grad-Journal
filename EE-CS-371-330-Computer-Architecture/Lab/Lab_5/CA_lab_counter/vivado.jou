@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Tue Feb 24 10:11:01 2026
+# Process ID: 88828
+# Current directory: C:/Users/aa09863/Desktop/The-Grad-Journal/EE-CS-371-330-Computer-Architecture/Lab/Lab_5/CA_lab_counter
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent97772 C:\Users\aa09863\Desktop\The-Grad-Journal\EE-CS-371-330-Computer-Architecture\Lab\Lab_5\CA_lab_counter\CA_lab_counter.xpr
+# Log file: C:/Users/aa09863/Desktop/The-Grad-Journal/EE-CS-371-330-Computer-Architecture/Lab/Lab_5/CA_lab_counter/vivado.log
+# Journal file: C:/Users/aa09863/Desktop/The-Grad-Journal/EE-CS-371-330-Computer-Architecture/Lab/Lab_5/CA_lab_counter\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/aa09863/Desktop/The-Grad-Journal/EE-CS-371-330-Computer-Architecture/Lab/Lab_5/CA_lab_counter/CA_lab_counter.xpr

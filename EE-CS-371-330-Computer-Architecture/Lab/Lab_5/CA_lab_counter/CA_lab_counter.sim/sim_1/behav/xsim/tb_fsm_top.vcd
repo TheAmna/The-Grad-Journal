@@ -1,0 +1,1034 @@
+$date
+   Tue Feb 24 09:52:00 2026
+$end
+$version
+  2020.1
+$end
+$timescale
+  1ps
+$end
+$scope module tb_fsm_top $end
+$var reg 1 ! clk $end
+$var reg 1 " btn_reset_raw $end
+$var reg 16 # sw_raw [15:0] $end
+$var wire 16 $ led_out [15:0] $end
+$var integer 32 % pass_count $end
+$var integer 32 & fail_count $end
+$var parameter 32 ' CLK_DIV_SIM [31:0] $end
+$var parameter 32 ( DEBOUNCE_SIM [31:0] $end
+$var parameter 32 ) SLOW_PERIOD [31:0] $end
+$scope module dut $end
+$var wire 1 * clk $end
+$var wire 1 + btn_reset_raw $end
+$var wire 16 , sw_raw [15:0] $end
+$var reg 16 - led_out [15:0] $end
+$var wire 1 . slow_clk $end
+$var wire 1 / btn_reset $end
+$var wire 32 0 sw_synced_bus [31:0] $end
+$var wire 16 1 sw_synced [15:0] $end
+$var wire 32 2 led_module_readData_nc [31:0] $end
+$var reg 1 3 state $end
+$var reg 16 4 counter_reg [15:0] $end
+$var parameter 32 5 CLK_DIV_MAX [31:0] $end
+$var parameter 32 6 DEBOUNCE_STAB [31:0] $end
+$var parameter 0 7 WAIT $end
+$var parameter 0 8 COUNT $end
+$scope module u_clkdiv $end
+$var wire 1 * clk $end
+$var wire 1 9 rst $end
+$var reg 1 : slow_clk $end
+$var reg 3 ; count [2:0] $end
+$var parameter 32 < MAX_COUNT [31:0] $end
+$upscope $end
+$scope module u_debouncer $end
+$var wire 1 * clk $end
+$var wire 1 + pbin $end
+$var reg 1 = pbout $end
+$var reg 2 > stable_cnt [1:0] $end
+$var reg 1 ? prev_in $end
+$var parameter 32 @ STABLE_MAX [31:0] $end
+$upscope $end
+$scope module u_switch_iface $end
+$var wire 1 * clk $end
+$var wire 1 / rst $end
+$var wire 16 A btns [15:0] $end
+$var wire 32 B writeData [31:0] $end
+$var wire 1 C writeEnable $end
+$var wire 1 D readEnable $end
+$var wire 30 E memAddress [29:0] $end
+$var wire 16 , switches [15:0] $end
+$var reg 32 F readData [31:0] $end
+$var reg 16 G sync_stage1 [15:0] $end
+$upscope $end
+$scope module u_led_iface $end
+$var wire 1 * clk $end
+$var wire 1 / rst $end
+$var wire 32 H writeData [31:0] $end
+$var wire 1 I writeEnable $end
+$var wire 1 J readEnable $end
+$var wire 30 K memAddress [29:0] $end
+$var reg 32 L readData [31:0] $end
+$var reg 16 M leds [15:0] $end
+$upscope $end
+$upscope $end
+$scope begin test2_block $end
+$var integer 32 N step $end
+$var integer 32 O expected_val $end
+$upscope $end
+$scope begin test4_block $end
+$var integer 32 P s4 $end
+$upscope $end
+$scope begin test5_block $end
+$var integer 32 Q s5 $end
+$upscope $end
+$scope task wait_cycles $end
+$var integer 32 R n $end
+$var integer 32 S i $end
+$upscope $end
+$scope task wait_slow $end
+$var integer 32 T n $end
+$upscope $end
+$scope task check_led $end
+$var reg 16 U expected [15:0] $end
+$var reg 64 V test_id [63:0] $end
+$upscope $end
+$scope task press_reset $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+0"
+b0 #
+bx $
+b0 %
+b0 &
+b101 '
+b11 (
+b101 )
+0*
+0+
+b0 ,
+bx -
+x.
+0/
+bx 0
+bx 1
+b0 2
+x3
+bx 4
+b101 5
+b11 6
+07
+18
+09
+x:
+bx ;
+b101 <
+0=
+b0 >
+0?
+b11 @
+b0 A
+b0 B
+0C
+1D
+b0 E
+bx F
+bx G
+b0 H
+0I
+0J
+b0 K
+b0 L
+bx M
+bx N
+bx O
+bx P
+bx Q
+b1010 R
+b0 S
+bx T
+bx U
+bx V
+$end
+#5000
+1!
+b0 $
+1*
+b0 -
+0.
+b0xxxxxxxxxxxxxxxx 0
+03
+0:
+b1 >
+b0xxxxxxxxxxxxxxxx F
+b0 G
+b1 S
+#10000
+0!
+0*
+#15000
+1!
+1*
+b0 0
+b0 1
+b10 >
+b0 F
+b10 S
+#20000
+0!
+0*
+#25000
+1!
+1*
+b11 >
+b11 S
+#30000
+0!
+0*
+#35000
+1!
+1*
+0=
+b100 S
+#40000
+0!
+0*
+#45000
+1!
+1*
+0=
+b101 S
+#50000
+0!
+0*
+#55000
+1!
+1*
+0=
+b110 S
+#60000
+0!
+0*
+#65000
+1!
+1*
+0=
+b111 S
+#70000
+0!
+0*
+#75000
+1!
+1*
+0=
+b1000 S
+#80000
+0!
+0*
+#85000
+1!
+1*
+0=
+b1001 S
+#90000
+0!
+0*
+#95000
+1!
+b0 #
+1*
+0=
+b1111 R
+b0 S
+b11 T
+#100000
+0!
+0*
+#105000
+1!
+1*
+0=
+b1 S
+#110000
+0!
+0*
+#115000
+1!
+1*
+0=
+b10 S
+#120000
+0!
+0*
+#125000
+1!
+1*
+0=
+b11 S
+#130000
+0!
+0*
+#135000
+1!
+1*
+0=
+b100 S
+#140000
+0!
+0*
+#145000
+1!
+1*
+0=
+b101 S
+#150000
+0!
+0*
+#155000
+1!
+1*
+0=
+b110 S
+#160000
+0!
+0*
+#165000
+1!
+1*
+0=
+b111 S
+#170000
+0!
+0*
+#175000
+1!
+1*
+0=
+b1000 S
+#180000
+0!
+0*
+#185000
+1!
+1*
+0=
+b1001 S
+#190000
+0!
+0*
+#195000
+1!
+1*
+0=
+b1010 S
+#200000
+0!
+0*
+#205000
+1!
+1*
+0=
+b1011 S
+#210000
+0!
+0*
+#215000
+1!
+1*
+0=
+b1100 S
+#220000
+0!
+0*
+#225000
+1!
+1*
+0=
+b1101 S
+#230000
+0!
+0*
+#235000
+1!
+1*
+0=
+b1110 S
+#240000
+0!
+0*
+#245000
+1!
+1*
+0=
+b1111 S
+b0 U
+b1 V
+#250000
+0!
+0*
+#255000
+1!
+1*
+0=
+#256000
+b1 %
+#260000
+0!
+0*
+#265000
+1!
+1*
+0=
+#266000
+b111 #
+b10 %
+b111 ,
+b110 R
+b0 S
+#270000
+0!
+0*
+#275000
+1!
+1*
+0=
+b111 G
+b1 S
+#280000
+0!
+0*
+#285000
+1!
+1*
+b111 0
+b111 1
+0=
+b111 F
+b10 S
+#290000
+0!
+0*
+#295000
+1!
+1*
+13
+b111 4
+0=
+b11 S
+#300000
+0!
+0*
+#305000
+1!
+b111 $
+1*
+b111 -
+0=
+b100 S
+#310000
+0!
+0*
+#315000
+1!
+1*
+0=
+b101 S
+#320000
+0!
+0*
+#325000
+1!
+b0 #
+1*
+b0 ,
+0=
+b0 G
+b111 N
+b101 R
+b0 S
+b1 T
+#330000
+0!
+0*
+#335000
+1!
+1*
+b0 0
+b0 1
+0=
+b0 F
+b1 S
+#340000
+0!
+0*
+#345000
+1!
+1*
+0=
+b10 S
+#350000
+0!
+0*
+#355000
+1!
+1*
+0=
+b11 S
+#360000
+0!
+0*
+#365000
+1!
+1*
+0=
+b100 S
+#370000
+0!
+0*
+#375000
+1!
+1*
+0=
+b10 R
+b0 S
+#380000
+0!
+0*
+#385000
+1!
+1*
+0=
+b1 S
+#390000
+0!
+0*
+#395000
+1!
+1*
+0=
+b110 N
+b110 O
+b101 R
+b0 S
+#400000
+0!
+0*
+#405000
+1!
+1*
+0=
+b1 S
+#410000
+0!
+0*
+#415000
+1!
+1*
+0=
+b10 S
+#420000
+0!
+0*
+#425000
+1!
+1*
+0=
+b11 S
+#430000
+0!
+0*
+#435000
+1!
+1*
+0=
+b100 S
+#440000
+0!
+0*
+#445000
+1!
+1*
+0=
+b10 R
+b0 S
+#450000
+0!
+0*
+#455000
+1!
+1*
+0=
+b1 S
+#460000
+0!
+0*
+#465000
+1!
+1*
+0=
+b101 N
+b101 O
+b101 R
+b0 S
+#470000
+0!
+0*
+#475000
+1!
+1*
+0=
+b1 S
+#480000
+0!
+0*
+#485000
+1!
+1*
+0=
+b10 S
+#490000
+0!
+0*
+#495000
+1!
+1*
+0=
+b11 S
+#500000
+0!
+0*
+#505000
+1!
+1*
+0=
+b100 S
+#510000
+0!
+0*
+#515000
+1!
+1*
+0=
+b10 R
+b0 S
+#520000
+0!
+0*
+#525000
+1!
+1*
+0=
+b1 S
+#530000
+0!
+0*
+#535000
+1!
+1*
+0=
+b100 N
+b100 O
+b101 R
+b0 S
+#540000
+0!
+0*
+#545000
+1!
+1*
+0=
+b1 S
+#550000
+0!
+0*
+#555000
+1!
+1*
+0=
+b10 S
+#560000
+0!
+0*
+#565000
+1!
+1*
+0=
+b11 S
+#570000
+0!
+0*
+#575000
+1!
+1*
+0=
+b100 S
+#580000
+0!
+0*
+#585000
+1!
+1*
+0=
+b10 R
+b0 S
+#590000
+0!
+0*
+#595000
+1!
+1*
+0=
+b1 S
+#600000
+0!
+0*
+#605000
+1!
+1*
+0=
+b11 N
+b11 O
+b101 R
+b0 S
+#610000
+0!
+0*
+#615000
+1!
+1*
+0=
+b1 S
+#620000
+0!
+0*
+#625000
+1!
+1*
+0=
+b10 S
+#630000
+0!
+0*
+#635000
+1!
+1*
+0=
+b11 S
+#640000
+0!
+0*
+#645000
+1!
+1*
+0=
+b100 S
+#650000
+0!
+0*
+#655000
+1!
+1*
+0=
+b10 R
+b0 S
+#660000
+0!
+0*
+#665000
+1!
+1*
+0=
+b1 S
+#670000
+0!
+0*
+#675000
+1!
+1*
+0=
+b10 N
+b10 O
+b101 R
+b0 S
+#680000
+0!
+0*
+#685000
+1!
+1*
+0=
+b1 S
+#690000
+0!
+0*
+#695000
+1!
+1*
+0=
+b10 S
+#700000
+0!
+0*
+#705000
+1!
+1*
+0=
+b11 S
+#710000
+0!
+0*
+#715000
+1!
+1*
+0=
+b100 S
+#720000
+0!
+0*
+#725000
+1!
+1*
+0=
+b10 R
+b0 S
+#730000
+0!
+0*
+#735000
+1!
+1*
+0=
+b1 S
+#740000
+0!
+0*
+#745000
+1!
+1*
+0=
+b1 N
+b1 O
+b101 R
+b0 S
+#750000
+0!
+0*
+#755000
+1!
+1*
+0=
+b1 S
+#760000
+0!
+0*
+#765000
+1!
+1*
+0=
+b10 S
+#770000
+0!
+0*
+#775000
+1!
+1*
+0=
+b11 S
+#780000
+0!
+0*
+#785000
+1!
+1*
+0=
+b100 S
+#790000
+0!
+0*
+#795000
+1!
+1*
+0=
+b10 R
+b0 S
+#800000
+0!
+0*
+#805000
+1!
+1*
+0=
+b1 S
+#810000
+0!
+0*
+#815000
+1!
+1*
+0=
+b0 N
+b0 O
+b1010 R
+b0 S
+b10 T
+#820000
+0!
+0*
+#825000
+1!
+1*
+0=
+b1 S
+#830000
+0!
+0*
+#835000
+1!
+1*
+0=
+b10 S
+#840000
+0!
+0*
+#845000
+1!
+1*
+0=
+b11 S
+#850000
+0!
+0*
+#855000
+1!
+1*
+0=
+b100 S
+#860000
+0!
+0*
+#865000
+1!
+1*
+0=
+b101 S
+#870000
+0!
+0*
+#875000
+1!
+1*
+0=
+b110 S
+#880000
+0!
+0*
+#885000
+1!
+1*
+0=
+b111 S
+#890000
+0!
+0*
+#895000
+1!
+1*
+0=
+b1000 S
+#900000
+0!
+0*
+#905000
+1!
+1*
+0=
+b1001 S
+#910000
+0!
+0*
+#915000
+1!
+1*
+0=
+b10 R
+b0 S
+#920000
+0!
+0*
+#925000
+1!
+1*
+0=
+b1 S
+#930000
+0!
+0*
+#935000
+1!
+1*
+0=
+b10 S
+b10 V
+#940000
+0!
+0*
+#945000
+1!
+1*
+0=
+#946000
+b1111 #
+b1 &
+b1111 ,
+b110 R
+b0 S
+#950000
+0!
+0*
+#955000
+1!
+1*
+0=
+b1111 G
+b1 S
+#960000
+0!
+0*
+#965000
+1!
+1*
+b1111 0
+b1111 1
+0=
+b1111 F
+b10 S
+#970000
+0!
+0*
+#975000
+1!
+1*
+0=
+b11 S
+#980000
+0!
+0*
+#985000
+1!
+1*
+0=
+b100 S
+#990000
+0!
+0*
+#995000
+1!
+1*
+0=
+b101 S
+#1000000
+0!
+0*
