@@ -1,8 +1,7 @@
-//  Removes mechanical contact bounce from a
-// pushbutton.  Uses a counter-based approach: the raw button
+//  removes  bounce from a pushbutton.  the raw button
 // signal must remain stable for STABLE_MAX consecutive clock
 // cycles before the output is updated.
-
+`timescale 1ns / 1ps
 module debouncer #(
     parameter STABLE_MAX = 500_000
 )(
@@ -10,16 +9,13 @@ module debouncer #(
     input  wire pbin,
     output reg  pbout
 );
-
     reg [$clog2(STABLE_MAX+1)-1 : 0] stable_cnt;
     reg prev_in;
-
     initial begin
         pbout      = 1'b0;
         prev_in    = 1'b0;
         stable_cnt = 0;
     end
-
     always @(posedge clk) begin
         if (pbin == prev_in) begin
             if (stable_cnt < STABLE_MAX) begin
@@ -32,5 +28,4 @@ module debouncer #(
             stable_cnt <= 0;
         end
     end
-
 endmodule

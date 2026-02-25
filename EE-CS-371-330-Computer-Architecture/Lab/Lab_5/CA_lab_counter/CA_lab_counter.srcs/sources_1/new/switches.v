@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module switches (
     input              clk,
     input              rst,
@@ -8,13 +9,10 @@ module switches (
     output reg [31:0]  readData,
     output reg [15:0]  leds
 );
-
     initial readData = 32'd0;
-
     always @(posedge clk) begin
         if (rst) begin
             leds <= 16'd0;
         end
     end
-
 endmodule

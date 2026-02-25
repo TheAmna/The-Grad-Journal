@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module fsm_top #(
     parameter CLK_DIV_MAX   = 25_000_000,
     parameter DEBOUNCE_STAB = 500_000
@@ -13,7 +14,6 @@ module fsm_top #(
     wire [31:0] sw_synced_bus;
     wire [15:0] sw_synced;
     wire [31:0] led_module_readData_nc;
-
     clock_divider #(
         .MAX_COUNT(CLK_DIV_MAX)
     ) u_clkdiv (
@@ -21,7 +21,6 @@ module fsm_top #(
         .rst      (1'b0),
         .slow_clk (slow_clk)
     );
-
     debouncer #(
         .STABLE_MAX(DEBOUNCE_STAB)
     ) u_debouncer (
@@ -30,7 +29,7 @@ module fsm_top #(
         .pbout (btn_reset)
     );
 
-    leds u_switch_iface (
+    leds instantiate(
         .clk         (clk),
         .rst         (btn_reset),
         .btns        (16'd0),
@@ -41,10 +40,9 @@ module fsm_top #(
         .switches    (sw_raw),
         .readData    (sw_synced_bus)
     );
-
     assign sw_synced = sw_synced_bus[15:0];
-
-    switches u_led_iface (
+    
+    switches instantitae (
         .clk         (clk),
         .rst         (btn_reset),
         .writeData   (32'd0),

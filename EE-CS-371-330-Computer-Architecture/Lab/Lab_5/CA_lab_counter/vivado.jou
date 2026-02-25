@@ -11,3 +11,16 @@
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/aa09863/Desktop/The-Grad-Journal/EE-CS-371-330-Computer-Architecture/Lab/Lab_5/CA_lab_counter/CA_lab_counter.xpr
+update_compile_order -fileset sources_1
+close_project
+open_project C:/Users/aa09863/Downloads/dld_top_final/dld_top_final/dld_top_final.xpr
+export_ip_user_files -of_objects  [get_files C:/Users/aa09863/Downloads/dld_top_final/dld_top_final/dld_top_final.srcs/sim_1/new/testbench_demux.v] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Users/aa09863/Downloads/dld_top_final/dld_top_final/dld_top_final.srcs/sim_1/new/testbench_demux.v
+export_ip_user_files -of_objects  [get_files C:/Users/aa09863/Downloads/dld_top_final/dld_top_final/dld_top_final.srcs/sim_1/new/testbench_fa.v] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Users/aa09863/Downloads/dld_top_final/dld_top_final/dld_top_final.srcs/sim_1/new/testbench_fa.v
+export_ip_user_files -of_objects  [get_files C:/Users/aa09863/Downloads/dld_top_final/dld_top_final/dld_top_final.srcs/sim_1/new/testnech_ha.v] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Users/aa09863/Downloads/dld_top_final/dld_top_final/dld_top_final.srcs/sim_1/new/testnech_ha.v
+export_ip_user_files -of_objects  [get_files C:/Users/aa09863/Downloads/dld_top_final/dld_top_final/dld_top_final.srcs/sim_1/new/twocomplementTestbench.v] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Users/aa09863/Downloads/dld_top_final/dld_top_final/dld_top_final.srcs/sim_1/new/twocomplementTestbench.v
+export_ip_user_files -of_objects  [get_files C:/Users/aa09863/Downloads/dld_top_final/dld_top_final/dld_top_final.srcs/sim_1/new/testbench_adder_subtractor.v] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Users/aa09863/Downloads/dld_top_final/dld_top_final/dld_top_final.srcs/sim_1/new/testbench_adder_subtractor.v
