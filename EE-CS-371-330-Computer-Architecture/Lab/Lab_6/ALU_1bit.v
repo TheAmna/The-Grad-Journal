@@ -1,0 +1,39 @@
+`timescale 1ns / 1ps
+module ALU_1bit (
+    input a,
+    input b,
+    input cin,
+    input [3:0] alucontrol,
+    output reg result,
+    output reg cout
+);
+
+wire and_res = a & b;
+wire or_res  = a | b;
+wire xor_res = a ^ b;
+wire fa_sum;
+wire fa_cout;
+
+FullAdder fa (
+    .a(a),
+    .b(b),
+    .cin(cin),
+    .sum(fa_sum),
+    .cout(fa_cout)
+);
+
+always @(*) begin
+    cout = fa_cout;
+    if (alucontrol == 4'b0000)
+        result = and_res;
+    else if (alucontrol == 4'b0001)
+        result = or_res;
+    else if (alucontrol == 4'b0100)
+        result = xor_res;
+    else if (alucontrol == 4'b0010 || alucontrol == 4'b0110)
+        result = fa_sum;
+    else
+        result = 1'b0;
+end
+endmodule
+
