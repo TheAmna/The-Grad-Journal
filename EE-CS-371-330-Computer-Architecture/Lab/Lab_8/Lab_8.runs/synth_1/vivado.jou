@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Thu Mar 12 11:58:06 2026
+# Process ID: 13148
+# Current directory: C:/Users/hk09629/Downloads/CA_Lab07/CA_Lab07/CA_Lab07.runs/synth_1
+# Command line: vivado.exe -log Top_Rf_Alu.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Top_Rf_Alu.tcl
+# Log file: C:/Users/hk09629/Downloads/CA_Lab07/CA_Lab07/CA_Lab07.runs/synth_1/Top_Rf_Alu.vds
+# Journal file: C:/Users/hk09629/Downloads/CA_Lab07/CA_Lab07/CA_Lab07.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source Top_Rf_Alu.tcl -notrace
