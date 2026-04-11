@@ -1,0 +1,318 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Sat Apr 11 12:40:11 2026
+# Process ID: 4388
+# Current directory: C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.runs/synth_1
+# Command line: vivado.exe -log InstructionMemory.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source InstructionMemory.tcl
+# Log file: C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.runs/synth_1/InstructionMemory.vds
+# Journal file: C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source InstructionMemory.tcl -notrace
+Command: synth_design -top InstructionMemory -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 17700
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1024.711 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'InstructionMemory' [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/sources_1/new/InstructionMemory.v:9]
+	Parameter OPERAND_LENGTH bound to: 31 - type: integer 
+INFO: [Synth 8-3876] $readmem data file 'instruction.mem' is read successfully [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/sources_1/new/InstructionMemory.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'InstructionMemory' (1#1) [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/sources_1/new/InstructionMemory.v:9]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1024.711 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1024.711 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1024.711 ; gain = 0.000
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1024.711 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc]
+WARNING: [Vivado 12-584] No ports matched 'clk'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:5]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:5]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'clk'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:6]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:6]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'clk'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:7]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports clk]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:7]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'btn_reset_raw'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:10]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:10]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'btn_reset_raw'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:11]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:11]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw_raw[0]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:18]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:18]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw_raw[1]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:19]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:19]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw_raw[2]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:20]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:20]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw_raw[3]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:21]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:21]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw_raw[4]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:22]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:22]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw_raw[5]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:23]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:23]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw_raw[6]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:24]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:24]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw_raw[7]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:25]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:25]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw_raw[8]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:26]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:26]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw_raw[9]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:27]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:27]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw_raw[10]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:28]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:28]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw_raw[11]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:29]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:29]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw_raw[12]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:30]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:30]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw_raw[13]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:31]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:31]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw_raw[14]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:32]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:32]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw_raw[15]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:33]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:33]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw_raw[*]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:34]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:34]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led_out[0]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:46]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:46]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led_out[1]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:47]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:47]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led_out[2]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:48]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:48]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led_out[3]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:49]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:49]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led_out[4]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:50]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:50]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led_out[5]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:51]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:51]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led_out[6]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:52]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:52]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led_out[7]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:53]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:53]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led_out[8]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:54]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:54]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led_out[9]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:55]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:55]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led_out[10]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:56]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:56]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led_out[11]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:57]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:57]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led_out[12]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:58]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:58]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led_out[13]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:59]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:59]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led_out[14]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:60]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:60]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led_out[15]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:61]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:61]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led_out[*]'. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:62]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc:62]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.srcs/constrs_1/new/Memory.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1024.711 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1024.711 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1024.711 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1024.711 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1024.711 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1024.711 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Muxes : 
+	  31 Input   32 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1024.711 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1024.711 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1024.711 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1029.242 ; gain = 4.531
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1034.027 ; gain = 9.316
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1034.027 ; gain = 9.316
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1034.027 ; gain = 9.316
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1034.027 ; gain = 9.316
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1034.027 ; gain = 9.316
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1034.027 ; gain = 9.316
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT5 |    27|
+|2     |IBUF |     5|
+|3     |OBUF |    32|
++------+-----+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1034.027 ; gain = 9.316
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 1034.027 ; gain = 9.316
+Synthesis Optimization Complete : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1034.027 ; gain = 9.316
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1047.105 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1049.055 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+15 Infos, 39 Warnings, 39 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 1049.055 ; gain = 24.344
+INFO: [Common 17-1381] The checkpoint 'C:/Users/aa09863/Downloads/lab9finall/lab9finall/lab9finall.runs/synth_1/InstructionMemory.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file InstructionMemory_utilization_synth.rpt -pb InstructionMemory_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 11 12:40:35 2026...
