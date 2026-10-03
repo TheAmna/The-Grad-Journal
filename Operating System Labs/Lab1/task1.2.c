@@ -1,3 +1,12 @@
+// Write a program that accepts a number of strings, sorts them alphabetically, and
+// then prints them, as shown below:
+// task2 hello my name is Bilal
+
+// Bilal
+// hello
+// is
+// my
+// name
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
