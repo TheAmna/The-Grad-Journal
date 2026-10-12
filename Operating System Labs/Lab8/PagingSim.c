@@ -41,3 +41,22 @@ int translate(Process* p, int virtualAddress){
     }
     return p->pageTable[vpn].frameNumber * PAGE_SIZE + offset;
  }
+
+void allocatePage(Process* p, int vpn, int frame)  { 
+    // Map the virtual page to the physical frame 
+    p -> pageTable[vpn].frameNumber = frame; 
+    // Mark the entry as valid (the room is now prepared and occupied) 
+    p -> pageTable[vpn].valid = 1; 
+    // Update the global frame pool to record which process owns this room 
+    framePool[frame] = p -> pid; 
+}
+
+displayPageTable(Process* p){
+    for (int i = 0; i < NUM_PAGES; i++){
+        if (p->pageTable[i].valid == 1) {
+            printf("VPN %d -> Frame %d\n", i, p->pageTable[i].frameNumber);
+        } else {
+            printf("VPN %d -> INVALID\n", i);
+        }
+    }
+}
