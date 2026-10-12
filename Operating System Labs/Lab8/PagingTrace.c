@@ -73,7 +73,7 @@ void allocatePage(Process* p, int vpn, int frame)  {
     framePool[frame] = p -> pid; 
 }
 
-displayPageTable(Process* p){
+void displayPageTable(Process* p){
     for (int i = 0; i < NUM_PAGES; i++){
         if (p->pageTable[i].valid == 1) {
             printf("VPN %d -> Frame %d\n", i, p->pageTable[i].frameNumber);
