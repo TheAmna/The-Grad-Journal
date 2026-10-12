@@ -5,34 +5,34 @@
 #define NUM_PAGES 16 
 #define NUM_FRAMES 8 
 #define MAX_TRACE 100
-TraceEntry trace[MAX_TRACE];
-int traceCount = 0;
-int framePool[NUM_FRAMES];
-int frameVPN[NUM_FRAMES];
-// Each process has a page table mapping virtual pages to physical frames. 
+
 typedef struct { 
     int frameNumber; 
     int valid; // The valid flag simulates page presence. 
     } PageTableEntry;
-
-typedef struct  
-{ 
-int va; 
-int vpn; 
-int offset; 
-int pageFault; // 1 = fault, 0 = hit 
-} TraceEntry; 
 
 typedef struct { 
   PageTableEntry pageTable[NUM_PAGES]; 
   int pid; 
   } Process; 
 
-int framePool[NUM_FRAMES]; // -1 = free frame 
+typedef struct  
+    { 
+    int va; 
+    int vpn; 
+    int offset; 
+    int pageFault; // 1 = fault, 0 = hit 
+    } TraceEntry; 
+
+TraceEntry trace[MAX_TRACE];
+int traceCount = 0;
+int framePool[NUM_FRAMES];
+int frameVPN[NUM_FRAMES];
+// Each process has a page table mapping virtual pages to physical frames. 
+ 
 // Initialize the Process 
 void initialize(Process* p, int pid) { 
   p->pid = pid; 
-    
   for (int i = 0; i < NUM_PAGES; i++) { 
     p->pageTable[i].valid = 0; // Mark all pages as invalid. 
   } 
@@ -40,12 +40,23 @@ void initialize(Process* p, int pid) {
 // Initialize the Frame Pool 
 void initializeFramePool() { 
   for (int i = 0; i < NUM_FRAMES; i++) { 
-  framePool[i] = -1;  // -1 indicates a free frame. 
+  framePool[i] = -1;
+  frameVPN[i] = -1;// -1 indicates a free frame. 
   } 
 }
 
-void findFreeFrame(){
- for(int i =0; i < NUM_PAGES; i++){
+void allocatePage(Process* p, int vpn, int frame)  { 
+    // Map the virtual page to the physical frame 
+    p -> pageTable[vpn].frameNumber = frame; 
+    // Mark the entry as valid (the room is now prepared and occupied) 
+    p -> pageTable[vpn].valid = 1; 
+    // Update the global frame pool to record which process owns this room 
+    framePool[frame] = p -> pid; 
+    frameVPN[frame] = vpn;
+}
+
+int findFreeFrame(){
+ for(int i =0; i < NUM_FRAMES; i++){
    if (framePool[i] == -1) {
             return i;      
         }
@@ -62,7 +73,7 @@ int translate(Process* p, int virtualAddress){
     int fault = 0;
     if (p->pageTable[vpn].valid == 0) {
         fault = 1;
-        printf("Panic: Room not found at VPN x! Scrambling to build a new frame.../n");
+        printf("Panic: Room not found at VPN %d! Scrambling to build a new frame...\n", vpn);
         int frame = findFreeFrame();
         if (frame == -1) {
             printf("No free frames!\n");  
@@ -84,14 +95,6 @@ int translate(Process* p, int virtualAddress){
     return pa;
  }
 
-void allocatePage(Process* p, int vpn, int frame)  { 
-    // Map the virtual page to the physical frame 
-    p -> pageTable[vpn].frameNumber = frame; 
-    // Mark the entry as valid (the room is now prepared and occupied) 
-    p -> pageTable[vpn].valid = 1; 
-    // Update the global frame pool to record which process owns this room 
-    framePool[frame] = p -> pid; 
-}
 
 void displayPhysicalMemory() {
     printf("--- Physical Memory ---\n");
@@ -105,16 +108,18 @@ void displayPhysicalMemory() {
 }
 
 int main() {
-    Process p1;
+    Process p1, p2;
     initializeFramePool();
     initialize(&p1, 1);
+    initialize(&p2, 2);
 
-    allocatePage(&p1, 1, 3);   // VPN 1 -> frame 3
-    allocatePage(&p1, 2, 5);   // VPN 2 -> frame 5
+    translate(&p1, 0);     // fault
+    translate(&p1, 300);   // fault
+    translate(&p1, 10);    // hit
+    translate(&p2, 0);     // fault
+    translate(&p2, 700);   // fault
+    translate(&p1, 305);   // hit
 
-    displayPhysicalMemory(&p1);
-
-    int pa = translate(&p1, 512);
-    printf("VA 512 -> PA %d\n", pa);
+    displayPhysicalMemory();
     return 0;
 }
