@@ -60,3 +60,18 @@ displayPageTable(Process* p){
         }
     }
 }
+
+int main() {
+    Process p1;
+    initializeFramePool();
+    initialize(&p1, 1);
+
+    allocatePage(&p1, 1, 3);   // VPN 1 -> frame 3
+    allocatePage(&p1, 2, 5);   // VPN 2 -> frame 5
+
+    displayPageTable(&p1);
+
+    int pa = translate(&p1, 512);
+    printf("VA 512 -> PA %d\n", pa);
+    return 0;
+}
