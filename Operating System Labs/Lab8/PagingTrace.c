@@ -1,3 +1,20 @@
+
+#include <stdio.h> 
+#include <stdlib.h> 
+#define PAGE_SIZE 256 
+#define NUM_PAGES 16 
+#define NUM_FRAMES 8 
+#define MAX_TRACE 100
+TraceEntry trace[MAX_TRACE];
+int traceCount = 0;
+int framePool[NUM_FRAMES];
+int frameVPN[NUM_FRAMES];
+// Each process has a page table mapping virtual pages to physical frames. 
+typedef struct { 
+    int frameNumber; 
+    int valid; // The valid flag simulates page presence. 
+    } PageTableEntry;
+
 typedef struct  
 { 
 int va; 
@@ -5,16 +22,6 @@ int vpn;
 int offset; 
 int pageFault; // 1 = fault, 0 = hit 
 } TraceEntry; 
-#include <stdio.h> 
-#include <stdlib.h> 
-#define PAGE_SIZE 256 
-#define NUM_PAGES 16 
-#define NUM_FRAMES 8 
-// Each process has a page table mapping virtual pages to physical frames. 
-typedef struct { 
-    int frameNumber; 
-    int valid; // The valid flag simulates page presence. 
-    } PageTableEntry;
 
 typedef struct { 
   PageTableEntry pageTable[NUM_PAGES]; 
@@ -52,7 +59,9 @@ int translate(Process* p, int virtualAddress){
    if (vpn < 0 || vpn >= NUM_PAGES) {
         return -1;
     }
+    int fault = 0;
     if (p->pageTable[vpn].valid == 0) {
+        fault = 1;
         printf("Panic: Room not found at VPN x! Scrambling to build a new frame.../n");
         int frame = findFreeFrame();
         if (frame == -1) {
@@ -61,7 +70,18 @@ int translate(Process* p, int virtualAddress){
         }
         allocatePage(p, vpn, frame);
         }
-        return p->pageTable[vpn].frameNumber * PAGE_SIZE + offset;
+        int pa = p->pageTable[vpn].frameNumber * PAGE_SIZE + offset;
+    // append to the log
+    if (traceCount < MAX_TRACE) {
+        trace[traceCount].va = virtualAddress;
+        trace[traceCount].vpn = vpn;
+        trace[traceCount].offset = offset;
+        trace[traceCount].pageFault = fault;
+        traceCount++;
+    }
+    printf("P%d: VA %d -> VPN %d, offset %d, %s -> PA %d\n",
+           p->pid, virtualAddress, vpn, offset, fault ? "PAGE FAULT" : "HIT", pa);
+    return pa;
  }
 
 void allocatePage(Process* p, int vpn, int frame)  { 
@@ -73,12 +93,13 @@ void allocatePage(Process* p, int vpn, int frame)  {
     framePool[frame] = p -> pid; 
 }
 
-void displayPageTable(Process* p){
-    for (int i = 0; i < NUM_PAGES; i++){
-        if (p->pageTable[i].valid == 1) {
-            printf("VPN %d -> Frame %d\n", i, p->pageTable[i].frameNumber);
+void displayPhysicalMemory() {
+    printf("--- Physical Memory ---\n");
+    for (int i = 0; i < NUM_FRAMES; i++) {
+        if (framePool[i] == -1) {
+            printf("Frame %d: [FREE]\n", i);
         } else {
-            printf("VPN %d -> INVALID\n", i);
+            printf("Frame %d: [P%d:VPN%d]\n", i, framePool[i], frameVPN[i]);
         }
     }
 }
@@ -91,7 +112,7 @@ int main() {
     allocatePage(&p1, 1, 3);   // VPN 1 -> frame 3
     allocatePage(&p1, 2, 5);   // VPN 2 -> frame 5
 
-    displayPageTable(&p1);
+    displayPhysicalMemory(&p1);
 
     int pa = translate(&p1, 512);
     printf("VA 512 -> PA %d\n", pa);
